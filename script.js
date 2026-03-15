@@ -47,14 +47,15 @@ const validProviderSpecCodes = new Set([
     "D3","D4","D7","D8","F6"
 ]);
 
-// Helper: update status message (lightweight inline text)
+// --- DOM helpers (browser only) ---
+if (typeof document !== 'undefined') {
+
 function setStatus(msg) {
     const el = document.getElementById("statusMsg");
     el.textContent = msg;
     el.classList.toggle("visible", !!msg);
 }
 
-// Helper: show/hide error message (uses CMS alert component)
 function setError(msg) {
     const el = document.getElementById("errorMsg");
     const textEl = document.getElementById("errorText");
@@ -62,15 +63,74 @@ function setError(msg) {
     el.classList.toggle("visible", !!msg);
 }
 
-// Helper: enable/disable the download button
+function setWarning(msg) {
+    const el = document.getElementById("warnMsg");
+    const textEl = document.getElementById("warnText");
+    textEl.textContent = msg;
+    el.classList.toggle("visible", !!msg);
+}
+
+function showResultsSummary(codeList, combinedData) {
+    const heading = document.getElementById("summaryHeading");
+    const list = document.getElementById("summaryList");
+    list.innerHTML = "";
+
+    if (codeList.length <= 1) {
+        heading.style.display = "none";
+        return;
+    }
+
+    const countsByCode = new Map(codeList.map(c => [c, 0]));
+    combinedData.forEach(record => {
+        const code = record['hcpcs_cd'];
+        if (countsByCode.has(code)) {
+            countsByCode.set(code, countsByCode.get(code) + 1);
+        }
+    });
+
+    codeList.forEach(code => {
+        const li = document.createElement("li");
+        const count = countsByCode.get(code);
+        li.textContent = count > 0
+            ? `${code}: ${count.toLocaleString()} records`
+            : `${code}: no records found`;
+        if (count === 0) {
+            li.style.fontWeight = "bold";
+        }
+        list.appendChild(li);
+    });
+
+    heading.style.display = "block";
+}
+
+function clearResults() {
+    document.getElementById("summaryHeading").style.display = "none";
+    document.getElementById("summaryList").innerHTML = "";
+    setWarning("");
+}
+
 function setButtonEnabled(enabled) {
     const btn = document.getElementById("downloadBtn");
     btn.disabled = !enabled;
     btn.textContent = enabled ? "Run Query and Download Results" : "Running...";
 }
 
-// Event listener for button click
-document.getElementById("downloadBtn").addEventListener("click", function () {
+function showProgress(completed, total) {
+    const container = document.getElementById("progressContainer");
+    const bar = document.getElementById("progressBar");
+    const text = document.getElementById("progressText");
+    container.style.display = "block";
+    const pct = Math.round((completed / total) * 100);
+    bar.style.width = pct + "%";
+    text.textContent = `Fetched ${completed} of ${total} years`;
+}
+
+function hideProgress() {
+    document.getElementById("progressContainer").style.display = "none";
+}
+
+document.getElementById("queryForm").addEventListener("submit", function (e) {
+    e.preventDefault();
     const rawInput = document.getElementById("procedureCode").value.trim();
     const codeList = rawInput.split(";").map(c => c.trim()).filter(Boolean);
     const selectedYears = Object.keys(yearDatasetMap);
@@ -80,19 +140,29 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
         return;
     }
 
-    // Clear any previous error and disable button
+    // Clear previous feedback and disable button
     setError("");
+    setWarning("");
+    clearResults();
     setButtonEnabled(false);
-    setStatus("Fetching data from CMS...");
+    setStatus("");
 
+    let completed = 0;
+    const total = selectedYears.length;
+    showProgress(0, total);
 
     const allPromises = selectedYears.map(year => {
         const datasetId = yearDatasetMap[year];
-        return fetchPaginatedData(datasetId, codeList, year);
+        return fetchPaginatedData(datasetId, codeList, year).then(result => {
+            completed++;
+            showProgress(completed, total);
+            return result;
+        });
     });
 
     Promise.all(allPromises)
         .then(resultsPerYear => {
+            hideProgress();
             const combinedData = resultsPerYear.flat();
             const collapsedData = collapseByAdvancedPracticeProvider(combinedData);
             const finalData = addAdvancedPracticePct(collapsedData).sort((a, b) => {
@@ -109,6 +179,18 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
                 const labelB = getClinician_type(b);
                 return clinicianTypeOrder.indexOf(labelA) - clinicianTypeOrder.indexOf(labelB) || Number(a.year) - Number(b.year);
             });
+
+            // Check for codes that returned no data
+            const returnedCodes = new Set(combinedData.map(r => r['hcpcs_cd']));
+            const missingCodes = codeList.filter(c => !returnedCodes.has(c));
+            if (missingCodes.length > 0) {
+                setWarning(
+                    `The following code${missingCodes.length > 1 ? 's' : ''} returned no records across all years: ${missingCodes.join(", ")}. ` +
+                    "This may indicate a typo."
+                );
+            }
+            showResultsSummary(codeList, combinedData);
+
             setStatus(`Done — downloaded ${finalData.length.toLocaleString()} rows.`);
             downloadCSV(finalData, codeList);
             setButtonEnabled(true);
@@ -116,16 +198,19 @@ document.getElementById("downloadBtn").addEventListener("click", function () {
         })
         .catch(error => {
             console.error("Error fetching data:", error);
+            hideProgress();
             setStatus("");
             setButtonEnabled(true);
             setError("There was an error fetching the data: " + error.message);
         });
 });
 
+} // end if (typeof document !== 'undefined')
+
 // Returns a Promise that resolves with all records for a given year
 function fetchPaginatedData(datasetId, codeList, year) {
     const url = `https://data.cms.gov/data-api/v1/dataset/${datasetId}/data`;
-    const size = 1000;
+    const size = 5000; // CMS API max page size
 
     function fetchPage(offset) {
         // Build query string manually to prevent URLSearchParams from
@@ -356,4 +441,21 @@ function convertToCSV(data) {
     });
 
     return csvRows.join('\n');
+}
+
+// Export for Node.js tests (no-op in browser)
+if (typeof module !== 'undefined') {
+    module.exports = {
+        yearDatasetMap,
+        yearColumnMap,
+        advancedPracticeProviderCodes,
+        validProviderSpecCodes,
+        appSpecialtyOrder,
+        fetchPaginatedData,
+        filterColumns,
+        collapseByAdvancedPracticeProvider,
+        addAdvancedPracticePct,
+        getClinician_type,
+        convertToCSV,
+    };
 }

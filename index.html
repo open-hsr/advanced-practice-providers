@@ -29,6 +29,14 @@
             display: block;
         }
 
+        #warnMsg {
+            display: none;
+        }
+
+        #warnMsg.visible {
+            display: block;
+        }
+
         #downloadBtn:disabled {
             opacity: 0.65;
             cursor: not-allowed;
@@ -60,15 +68,25 @@
                 across all entered procedures codes, not each individual code.
             </p>
 
-            <div class="ds-u-margin-top--2">
+            <form id="queryForm" class="ds-u-margin-top--2">
                 <label class="ds-c-label" for="procedureCode">
                     Procedure Codes<br>
                     <span class="ds-c-label__hint">Semicolon-separated HCPCS codes</span>
                 </label>
                 <input class="ds-c-field" type="text" id="procedureCode" placeholder="e.g. 31237;S2342" minlength="5" maxlength="149">
+
+                <button type="submit" class="ds-c-button ds-c-button--solid ds-u-margin-top--2" id="downloadBtn">Run Query and Download Results</button>
+            </form>
+
+            <div id="progressContainer" class="ds-u-margin-top--2" style="display:none;">
+                <div class="ds-u-display--flex ds-u-align-items--center">
+                    <div style="flex:1; height:8px; background:var(--color-gray-lighter, #e0e0e0); border-radius:4px; overflow:hidden;">
+                        <div id="progressBar" style="height:100%; width:0%; background:var(--color-primary, #0071bc); border-radius:4px; transition:width 0.3s ease;"></div>
+                    </div>
+                    <span id="progressText" class="ds-text ds-u-margin-left--1" style="white-space:nowrap; color:var(--color-muted, #555); font-size:0.875rem;"></span>
+                </div>
             </div>
 
-            <button class="ds-c-button ds-c-button--solid ds-u-margin-top--2" id="downloadBtn">Run Query and Download Results</button>
             <p id="statusMsg" class="ds-text" role="status"></p>
 
             <div id="errorMsg" class="ds-c-alert ds-c-alert--error ds-u-margin-top--2" role="alert">
@@ -76,6 +94,18 @@
                     <h3 class="ds-c-alert__heading">Error</h3>
                     <p class="ds-c-alert__text" id="errorText"></p>
                 </div>
+            </div>
+
+            <div id="warnMsg" class="ds-c-alert ds-c-alert--warn ds-u-margin-top--2" role="alert">
+                <div class="ds-c-alert__body">
+                    <h3 class="ds-c-alert__heading">No records found for some codes</h3>
+                    <p class="ds-c-alert__text" id="warnText"></p>
+                </div>
+            </div>
+
+            <div id="resultsSummary" class="ds-u-margin-top--3">
+                <h2 class="ds-text-heading--xl" id="summaryHeading" style="display:none;">Records by procedure code</h2>
+                <ul class="ds-c-list" id="summaryList"></ul>
             </div>
         </section>
     </div>
