@@ -69,7 +69,7 @@
             <form id="queryForm" class="ds-u-margin-top--2">
                 <label class="ds-c-label" for="procedureCode">Procedure Codes</label>
                 <p class="ds-c-label__hint ds-u-margin-top--0" id="procedureCodeHint">Semicolon-separated HCPCS codes</p>
-                <input class="ds-c-field" type="text" id="procedureCode" placeholder="e.g. 31237;S2342" minlength="5" maxlength="149" style="max-width:24rem;">
+                <input class="ds-c-field" type="text" id="procedureCode" placeholder="e.g. 31231;31237;S2342" minlength="5" maxlength="149" style="max-width:24rem;">
 
                 <button type="submit" class="ds-c-button ds-c-button--solid ds-u-margin-top--2" id="downloadBtn">Run Query</button>
             </form>
@@ -107,7 +107,7 @@
             <div id="resultsChartContainer" class="ds-u-margin-top--3" style="display:none;">
                 <div class="ds-u-display--flex ds-u-justify-content--between ds-u-align-items--center ds-u-margin-bottom--2">
                     <h2 class="ds-text-heading--xl ds-u-margin-bottom--0">Results</h2>
-                    <button type="button" class="ds-c-button ds-c-button--outline" id="downloadCsvBtn">Download Full CSV</button>
+                    <button type="button" class="ds-c-button ds-c-button--outline" id="downloadCsvBtn">Download CSV</button>
                 </div>
                 <canvas id="resultsChart"></canvas>
             </div>

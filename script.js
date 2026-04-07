@@ -230,12 +230,8 @@ function showResultsChart(taggedData) {
     resultsChart = new Chart(ctx, {
         type: 'line',
         data: { labels: years, datasets },
-        plugins: [directLabelPlugin],
         options: {
             responsive: true,
-            layout: {
-                padding: { right: 180 } // room for direct label
-            },
             plugins: {
                 legend: { display: false },
                 tooltip: {
