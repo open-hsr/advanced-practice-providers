@@ -13,12 +13,24 @@ No build system — the app is vanilla HTML + JavaScript served as static files.
 ### Testing
 
 ```bash
-node --test test/snapshot.test.js
+node --test test/unit.test.js                         # fast unit tests, no network
+node --test test/snapshot.test.js                     # network-backed regression (~30s)
+node --test --test-timeout=180000 test/consistency.test.js  # multi-code consistency (~1m)
 ```
 
-Zero-dependency snapshot test using Node's built-in test runner. First run saves a fixture to `test/fixtures/snapshot_31237.json`; subsequent runs compare against it. Delete the fixture file to regenerate.
+Zero-dependency tests using Node's built-in test runner. `test/helpers.js` shares a `runQuery` that mirrors the browser's pipeline and produces the same row shape as the CSV download.
+
+- `unit.test.js` — pure tests for `filterColumns`, `collapseByAdvancedPracticeProvider`, `addAdvancedPracticePct`, and `buildQueryURL`. Covers the three year-eras of CMS column-naming, the `"*"` redaction handling, the aggregate-only denominator invariant, and the manually-built query string (brackets/commas must stay literal).
+- `snapshot.test.js` — runs the full pipeline against the live CMS API for HCPCS code 31237. First run saves a fixture to `test/fixtures/snapshot_31237.json`; subsequent runs compare against it. Delete the fixture file to regenerate.
+- `consistency.test.js` — runs a multi-code query and asserts it equals the per-(year, clinician_type) sum of single-code queries. Catches pagination off-by-ones, IN-filter encoding bugs, and any non-order-independent aggregation. Hits the CMS API; not for CI.
+
+  By default only the moderate-volume case runs. Env vars:
+  - `RUN_ALL_CONSISTENCY_CASES=1` — also runs the ENT smoke case and the high-volume stress case (`99213` + others). The high-volume case is best run from a fresh-IP environment so it doesn't burn through the local IP's CMS rate-limit budget.
+  - `VERBOSE_FETCH=1` — streams per-page-fetch and per-retry events to stdout for diagnosis. Noisy.
 
 `script.js` is dual-environment: DOM code is guarded by `typeof document !== 'undefined'` and functions are exported via conditional `module.exports` for Node test imports.
+
+`fetchPaginatedData` caps in-flight CMS requests (`MAX_CONCURRENT_FETCHES`), retries HTTP 429 with exponential backoff, and aborts the run after a hard `MAX_429_BUDGET` ceiling — protects both the browser app from rate-limit failures and the test suite from sustained throttling.
 
 ## Architecture
 

@@ -363,55 +363,128 @@ document.getElementById("queryForm").addEventListener("submit", function (e) {
 
 } // end if (typeof document !== 'undefined')
 
+// Build the CMS API query URL. Constructs the query string manually because
+// URLSearchParams would percent-encode brackets (needed for the IN filter)
+// and commas (needed for the column list).
+function buildQueryURL(datasetId, codeList, year, offset, size = 5000) {
+    const url = `https://data.cms.gov/data-api/v1/dataset/${datasetId}/data`;
+    const queryParts = [];
+
+    if (codeList.length === 1) {
+        queryParts.push("filter[condition][path]=HCPCS_CD");
+        queryParts.push("filter[condition][operator]==");
+        queryParts.push(`filter[condition][value]=${encodeURIComponent(codeList[0])}`);
+    } else {
+        // CMS IN filter requires repeated value[]= params
+        queryParts.push("filter[condition][path]=HCPCS_CD");
+        queryParts.push("filter[condition][operator]=IN");
+        codeList.forEach(code => {
+            queryParts.push(`filter[condition][value][]=${encodeURIComponent(code)}`);
+        });
+    }
+
+    queryParts.push(`offset=${offset}`);
+    queryParts.push(`size=${size}`);
+    queryParts.push(`column=${yearColumnMap[year].join(",")}`);
+
+    return `${url}?${queryParts.join("&")}`;
+}
+
+// Module-level concurrency cap for CMS API fetches. Without this, a multi-code
+// query with 25 high-volume codes could fire 150+ parallel requests and trip
+// CMS's rate limit (HTTP 429). The cap keeps in-flight requests under the
+// observed throttling threshold and queues the rest. Combined with the retry
+// below, this makes both the browser app and the test suite robust to any
+// realistic query volume.
+const MAX_CONCURRENT_FETCHES = 6;
+let activeFetches = 0;
+const fetchQueue = [];
+
+function acquireFetchSlot() {
+    if (activeFetches < MAX_CONCURRENT_FETCHES) {
+        activeFetches++;
+        return Promise.resolve();
+    }
+    return new Promise(resolve => fetchQueue.push(resolve));
+}
+
+function releaseFetchSlot() {
+    const next = fetchQueue.shift();
+    if (next) {
+        next(); // hand the slot directly to the next waiter
+    } else {
+        activeFetches--;
+    }
+}
+
+// Hard ceiling on total HTTP 429s before aborting the whole run. Past this
+// point retry won't recover — the API is sustainedly throttling us.
+const MAX_429_BUDGET = 15;
+let total429Count = 0;
+
+// Optional verbose logging for diagnosis (per-page, per-retry). Enable with
+// the VERBOSE_FETCH=1 env var. Silent in the browser.
+function logFetchEvent(msg) {
+    if (typeof process !== 'undefined' && process.env && process.env.VERBOSE_FETCH === '1') {
+        console.log(`[fetch ${new Date().toISOString().slice(11, 19)}] ${msg}`);
+    }
+}
+
+// Fetch a URL with retry/backoff on HTTP 429 (rate-limited). Honors a
+// Retry-After header if present. Holds a concurrency slot through all retries
+// so backoff doesn't immediately admit more requests that would re-trigger
+// throttling. Aborts the whole run if cumulative 429s exceed MAX_429_BUDGET.
+async function fetchWithRateLimitRetry(url) {
+    await acquireFetchSlot();
+    try {
+        const BACKOFF_MS = [2000, 8000, 30000, 60000];
+        for (let attempt = 0; attempt <= BACKOFF_MS.length; attempt++) {
+            const response = await fetch(url);
+            if (response.status !== 429) return response;
+
+            total429Count++;
+            if (total429Count > MAX_429_BUDGET) {
+                throw new Error(
+                    `Aborting: cumulative HTTP 429 count (${total429Count}) exceeded budget ` +
+                    `(${MAX_429_BUDGET}). API is sustainedly rate-limiting; retry will not recover.`
+                );
+            }
+            if (attempt === BACKOFF_MS.length) return response;
+
+            const retryAfter = parseInt(response.headers.get('retry-after'), 10);
+            const wait = Number.isFinite(retryAfter) ? retryAfter * 1000 : BACKOFF_MS[attempt];
+            logFetchEvent(`HTTP 429 (#${total429Count}/${MAX_429_BUDGET}) — backing off ${wait}ms before retry ${attempt + 1}`);
+            await new Promise(r => setTimeout(r, wait));
+        }
+    } finally {
+        releaseFetchSlot();
+    }
+}
+
 // Returns a Promise that resolves with all records for a given year
 function fetchPaginatedData(datasetId, codeList, year) {
-    const url = `https://data.cms.gov/data-api/v1/dataset/${datasetId}/data`;
     const size = 5000; // CMS API max page size
 
-    function fetchPage(offset) {
-        // Build query string manually to prevent URLSearchParams from
-        // percent-encoding brackets (needed for IN filter) and commas (needed for column list).
-        let queryParts = [];
-
-        if (codeList.length === 1) {
-            // Single code: simple equality filter
-            queryParts.push("filter[condition][path]=HCPCS_CD");
-            queryParts.push("filter[condition][operator]==");
-            queryParts.push(`filter[condition][value]=${encodeURIComponent(codeList[0])}`);
-        } else {
-            // Multiple codes: IN filter — CMS API requires empty brackets: value[]=X&value[]=Y
-            queryParts.push("filter[condition][path]=HCPCS_CD");
-            queryParts.push("filter[condition][operator]=IN");
-            codeList.forEach(code => {
-                queryParts.push(`filter[condition][value][]=${encodeURIComponent(code)}`);
-            });
+    async function fetchPage(offset) {
+        logFetchEvent(`year=${year} page offset=${offset} → fetching`);
+        const response = await fetchWithRateLimitRetry(buildQueryURL(datasetId, codeList, year, offset, size));
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(`API error ${response.status} for year ${year}: ${text}`);
         }
+        const data = await response.json();
+        const more = Array.isArray(data) && data.length >= size;
+        logFetchEvent(`year=${year} page offset=${offset} ← ${Array.isArray(data) ? data.length : 0} records${more ? ' (more pages)' : ''}`);
 
-        queryParts.push(`offset=${offset}`);
-        queryParts.push(`size=${size}`);
-        // Keep commas literal — the API requires a raw comma-separated column list
-        queryParts.push(`column=${yearColumnMap[year].join(",")}`);
+        if (!Array.isArray(data) || data.length === 0) return [];
 
-        return fetch(`${url}?${queryParts.join("&")}`)
-            .then(response => {
-                if (!response.ok) {
-                    return response.text().then(text => {
-                        throw new Error(`API error ${response.status} for year ${year}: ${text}`);
-                    });
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (!Array.isArray(data) || data.length === 0) return [];
+        const filteredData = filterColumns(data, year);
 
-                const filteredData = filterColumns(data, year);
-
-                if (data.length >= size) {
-                    return fetchPage(offset + size).then(nextData => filteredData.concat(nextData));
-                } else {
-                    return filteredData;
-                }
-            });
+        if (more) {
+            const nextData = await fetchPage(offset + size);
+            return filteredData.concat(nextData);
+        }
+        return filteredData;
     }
 
     return fetchPage(0);
@@ -611,6 +684,7 @@ if (typeof module !== 'undefined') {
         advancedPracticeProviderCodes,
         validProviderSpecCodes,
         appSpecialtyOrder,
+        buildQueryURL,
         fetchPaginatedData,
         filterColumns,
         collapseByAdvancedPracticeProvider,

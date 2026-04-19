@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:data.cms.gov)",
+      "Bash(node:*)",
+      "WebFetch(domain:dkan.readthedocs.io)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:demo.getdkan.org)",
+      "Bash(modal --version)",
+      "Bash(modal token *)",
+      "Bash(modal profile *)",
+      "Bash(modal run *)",
+      "Bash(modal app *)"
+    ]
+  }
+}

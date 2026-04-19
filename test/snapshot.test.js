@@ -11,56 +11,10 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 
-const {
-    yearDatasetMap,
-    fetchPaginatedData,
-    collapseByAdvancedPracticeProvider,
-    addAdvancedPracticePct,
-    getClinician_type,
-    buildTaggedData,
-} = require('../script.js');
+const { runQuery } = require('./helpers');
 
 const FIXTURE_DIR = path.join(__dirname, 'fixtures');
 const FIXTURE_PATH = path.join(FIXTURE_DIR, 'snapshot_31237.json');
-
-// Same sort used in the browser click handler
-const clinicianTypeOrder = [
-    "Advanced Practice Providers",
-    "Physicians",
-    "Physician Assistants",
-    "Nurse Practitioners",
-    "Certified Registered Nurse Anesthetists",
-    "Certified Clinical Nurse Specialists",
-    "Certified Nurse Midwives"
-];
-
-function sortFinalData(data) {
-    return data.sort((a, b) => {
-        const labelA = getClinician_type(a);
-        const labelB = getClinician_type(b);
-        return clinicianTypeOrder.indexOf(labelA) - clinicianTypeOrder.indexOf(labelB)
-            || Number(a.year) - Number(b.year);
-    });
-}
-
-// Build the final CSV-shaped output (same as downloadCSV produces)
-function buildOutput(finalData, codeList) {
-    return buildTaggedData(finalData, codeList);
-}
-
-async function runQuery(codeList) {
-    const selectedYears = Object.keys(yearDatasetMap);
-    const resultsPerYear = await Promise.all(
-        selectedYears.map(year => {
-            const datasetId = yearDatasetMap[year];
-            return fetchPaginatedData(datasetId, codeList, year);
-        })
-    );
-    const combinedData = resultsPerYear.flat();
-    const collapsedData = collapseByAdvancedPracticeProvider(combinedData);
-    const finalData = sortFinalData(addAdvancedPracticePct(collapsedData));
-    return buildOutput(finalData, codeList);
-}
 
 function assertOutputMatches(output, snapshot) {
     assert.equal(output.length, snapshot.length, `Row count mismatch: got ${output.length}, expected ${snapshot.length}`);
