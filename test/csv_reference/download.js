@@ -3,7 +3,7 @@
 // are the same CSVs published in CMS's data catalog.
 //
 // Usage:
-//   node test/alternate_method/download.js
+//   node test/csv_reference/download.js
 //
 // Resumable: years already present in raw/ are skipped. Total volume is
 // roughly 11 GB across all 15 years; raw/ is gitignored.

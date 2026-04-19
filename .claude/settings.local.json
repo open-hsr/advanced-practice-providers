@@ -22,7 +22,8 @@
       "Bash(curl -s \"https://data.cms.gov/sites/default/files/2025-07/bb32bbbc-6af2-4a47-9f21-fd12d2e8e9d6/Physician_Supplier_Procedure_Summary_2024.csv\" -o /tmp/psps_sample/2024.csv)",
       "Bash(echo \"EXIT: $?\")",
       "Bash(tee /tmp/altmethod_fixture.log)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(git mv *)"
     ]
   }
 }

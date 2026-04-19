@@ -1,14 +1,14 @@
-// Alternate-method validation: compares the production pipeline's output
+// CSV-reference validation: compares the production pipeline's output
 // against an independently-implemented reference computed from a full
 // download of the CMS PSPS dataset.
 //
 // Skips itself if the fixture isn't present (since regenerating it requires
 // a multi-GB download). To create or refresh the fixture:
 //
-//   node test/alternate_method/download.js          # one-time, slow
-//   node test/alternate_method/generate_fixture.js  # builds the fixture
+//   node test/csv_reference/download.js          # one-time, slow
+//   node test/csv_reference/generate_fixture.js  # builds the fixture
 //
-// Usage: node --test test/alternate_method/alternate.test.js
+// Usage: node --test test/csv_reference/verify.test.js
 
 const { describe, it } = require('node:test');
 const assert = require('node:assert/strict');
@@ -17,19 +17,19 @@ const path = require('node:path');
 
 const { runQuery } = require('../helpers');
 
-const FIXTURE_PATH = path.join(__dirname, 'fixtures', 'ent_alternate.json');
+const FIXTURE_PATH = path.join(__dirname, 'fixtures', 'ent_reference.json');
 const ENT_CODES = ['31237', '31238', '31256'];
 
 function closeEnough(got, want) {
     return Math.abs(got - want) <= Math.max(1e-6, Math.abs(want) * 1e-10);
 }
 
-describe('alternate-method validation', () => {
+describe('csv-reference validation', () => {
     it('production pipeline matches independent reference for ENT codes', async (t) => {
         if (!fs.existsSync(FIXTURE_PATH)) {
             t.skip(
                 `Fixture ${FIXTURE_PATH} missing. To generate: ` +
-                `\`node test/alternate_method/download.js && node test/alternate_method/generate_fixture.js\``
+                `\`node test/csv_reference/download.js && node test/csv_reference/generate_fixture.js\``
             );
             return;
         }
@@ -64,6 +64,6 @@ describe('alternate-method validation', () => {
             );
         }
 
-        console.log(`Production pipeline matches alternate-method reference (${output.length} rows).`);
+        console.log(`Production pipeline matches CSV-reference (${output.length} rows).`);
     });
 });

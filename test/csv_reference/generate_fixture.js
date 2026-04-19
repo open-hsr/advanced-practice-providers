@@ -1,8 +1,8 @@
-// Generates the alternate-method comparison fixture by running the
+// Generates the CSV-reference comparison fixture by running the
 // independent CSV-streaming munge over the raw files written by download.js.
 //
 // Usage:
-//   node test/alternate_method/generate_fixture.js
+//   node test/csv_reference/generate_fixture.js
 //
 // The fixture is committed to source control; raw/ is gitignored.
 
@@ -21,7 +21,7 @@ function locateCsvs() {
         const file = path.join(RAW_DIR, `${year}.csv`);
         if (!fs.existsSync(file)) {
             throw new Error(
-                `Missing ${file}. Run \`node test/alternate_method/download.js\` first.`
+                `Missing ${file}. Run \`node test/csv_reference/download.js\` first.`
             );
         }
         out[year] = file;
@@ -39,7 +39,7 @@ function locateCsvs() {
     console.log(`Munged in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
 
     fs.mkdirSync(FIXTURE_DIR, { recursive: true });
-    const outPath = path.join(FIXTURE_DIR, 'ent_alternate.json');
+    const outPath = path.join(FIXTURE_DIR, 'ent_reference.json');
     fs.writeFileSync(outPath, JSON.stringify(rows, null, 2));
     console.log(`\nWrote ${rows.length} rows to ${outPath}`);
 })();

@@ -28,14 +28,7 @@ Zero-dependency tests using Node's built-in test runner. `test/helpers.js` share
   - `RUN_ALL_CONSISTENCY_CASES=1` — also runs the ENT smoke case and the high-volume stress case (`99213` + others). The high-volume case is best run from a fresh-IP environment so it doesn't burn through the local IP's CMS rate-limit budget.
   - `VERBOSE_FETCH=1` — streams per-page-fetch and per-retry events to stdout for diagnosis. Noisy.
 
-- `alternate_method/alternate.test.js` — independently validates the production pipeline's ENT-codes output against a reference computed from the full PSPS CSVs (downloaded directly from CMS, not via the data API). Two completely separate code paths must agree.
-
-  The validation runs against a committed fixture (`alternate_method/fixtures/ent_alternate.json`); it skips itself if the fixture is missing. To regenerate (one-time, ~12 GB download + ~3 min munge):
-  ```bash
-  node test/alternate_method/download.js          # direct CSV downloads to raw/ (gitignored)
-  node test/alternate_method/generate_fixture.js  # streams the CSVs and writes the fixture
-  ```
-  `alternate_method/munge.js` is intentionally written from scratch in a different style than `script.js` so reproduced bugs are unlikely to appear in both.
+- `csv_reference/verify.test.js` — independently validates the production pipeline's ENT-codes output against a reference computed from the full PSPS CSVs (downloaded directly from CMS, not via the data API). Two completely separate code paths must agree. See `test/csv_reference/README.md`.
 
 `script.js` is dual-environment: DOM code is guarded by `typeof document !== 'undefined'` and functions are exported via conditional `module.exports` for Node test imports.
 
