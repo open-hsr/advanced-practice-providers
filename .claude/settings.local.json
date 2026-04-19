@@ -10,7 +10,19 @@
       "Bash(modal token *)",
       "Bash(modal profile *)",
       "Bash(modal run *)",
-      "Bash(modal app *)"
+      "Bash(modal app *)",
+      "Bash(curl -s \"https://data.cms.gov/data-api/v1/dataset/647c8fa8-5dd6-460d-a2ec-18faf15b3fb2\")",
+      "Bash(curl -s \"https://data.cms.gov/data.json\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); ds=[x for x in d.get\\('dataset',[]\\) if 'PSPS' in \\(x.get\\('title',''\\)+x.get\\('description',''\\)\\).upper\\(\\)][:3]; print\\(json.dumps\\(ds, indent=2\\)\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -sIL \"https://data.cms.gov/sites/default/files/2025-07/bb32bbbc-6af2-4a47-9f21-fd12d2e8e9d6/Physician_Supplier_Procedure_Summary_2024.csv\")",
+      "Bash(curl -s --range 0-2000 \"https://data.cms.gov/sites/default/files/2020-11/PSPS_2024_SUPPRESS.csv\")",
+      "Bash(curl -s --range 0-2000 \"https://data.cms.gov/sites/default/files/2025-07/bb32bbbc-6af2-4a47-9f21-fd12d2e8e9d6/Physician_Supplier_Procedure_Summary_2024.csv\")",
+      "Bash(curl -s \"https://data.cms.gov/sites/default/files/2020-11/PSPS_2015_SUPPRESS.csv\" -o /tmp/psps_sample/2015.csv)",
+      "Bash(curl -s \"https://data.cms.gov/sites/default/files/2025-07/bb32bbbc-6af2-4a47-9f21-fd12d2e8e9d6/Physician_Supplier_Procedure_Summary_2024.csv\" -o /tmp/psps_sample/2024.csv)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(tee /tmp/altmethod_fixture.log)",
+      "Bash(git check-ignore *)"
     ]
   }
 }

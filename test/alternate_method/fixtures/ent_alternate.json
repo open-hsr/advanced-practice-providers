@@ -1,0 +1,842 @@
+[
+  {
+    "year": "2010",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 345,
+    "proportion_of_procedures_clinician_type": 0.00402980890529365,
+    "number_of_procedures_all_clinicians": 85612
+  },
+  {
+    "year": "2011",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 490,
+    "proportion_of_procedures_clinician_type": 0.005409403530463774,
+    "number_of_procedures_all_clinicians": 90583
+  },
+  {
+    "year": "2012",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 438,
+    "proportion_of_procedures_clinician_type": 0.004604903486269398,
+    "number_of_procedures_all_clinicians": 95116
+  },
+  {
+    "year": "2013",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 594,
+    "proportion_of_procedures_clinician_type": 0.005898914063547392,
+    "number_of_procedures_all_clinicians": 100696.5
+  },
+  {
+    "year": "2014",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 732,
+    "proportion_of_procedures_clinician_type": 0.007099352135624782,
+    "number_of_procedures_all_clinicians": 103108
+  },
+  {
+    "year": "2015",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 782,
+    "proportion_of_procedures_clinician_type": 0.0075024224573791405,
+    "number_of_procedures_all_clinicians": 104233
+  },
+  {
+    "year": "2016",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 1095,
+    "proportion_of_procedures_clinician_type": 0.010101755583641613,
+    "number_of_procedures_all_clinicians": 108397
+  },
+  {
+    "year": "2017",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 1190,
+    "proportion_of_procedures_clinician_type": 0.010775276625799092,
+    "number_of_procedures_all_clinicians": 110438
+  },
+  {
+    "year": "2018",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 1823,
+    "proportion_of_procedures_clinician_type": 0.016364452423698383,
+    "number_of_procedures_all_clinicians": 111400
+  },
+  {
+    "year": "2019",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 2608,
+    "proportion_of_procedures_clinician_type": 0.023150120721488424,
+    "number_of_procedures_all_clinicians": 112656
+  },
+  {
+    "year": "2020",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 1539,
+    "proportion_of_procedures_clinician_type": 0.018343921713529686,
+    "number_of_procedures_all_clinicians": 83897
+  },
+  {
+    "year": "2021",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 2319,
+    "proportion_of_procedures_clinician_type": 0.025282644483935326,
+    "number_of_procedures_all_clinicians": 91723
+  },
+  {
+    "year": "2022",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 2644,
+    "proportion_of_procedures_clinician_type": 0.028269609101017876,
+    "number_of_procedures_all_clinicians": 93528
+  },
+  {
+    "year": "2023",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 3364,
+    "proportion_of_procedures_clinician_type": 0.03549646512609476,
+    "number_of_procedures_all_clinicians": 94770
+  },
+  {
+    "year": "2024",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Advanced Practice Providers",
+    "number_of_procedures_clinician_type": 4155,
+    "proportion_of_procedures_clinician_type": 0.04114309479250215,
+    "number_of_procedures_all_clinicians": 100989
+  },
+  {
+    "year": "2010",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 85267,
+    "proportion_of_procedures_clinician_type": 0.9959701910947063,
+    "number_of_procedures_all_clinicians": 85612
+  },
+  {
+    "year": "2011",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 90093,
+    "proportion_of_procedures_clinician_type": 0.9945905964695362,
+    "number_of_procedures_all_clinicians": 90583
+  },
+  {
+    "year": "2012",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 94678,
+    "proportion_of_procedures_clinician_type": 0.9953950965137306,
+    "number_of_procedures_all_clinicians": 95116
+  },
+  {
+    "year": "2013",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 100102.5,
+    "proportion_of_procedures_clinician_type": 0.9941010859364526,
+    "number_of_procedures_all_clinicians": 100696.5
+  },
+  {
+    "year": "2014",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 102376,
+    "proportion_of_procedures_clinician_type": 0.9929006478643753,
+    "number_of_procedures_all_clinicians": 103108
+  },
+  {
+    "year": "2015",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 103451,
+    "proportion_of_procedures_clinician_type": 0.9924975775426209,
+    "number_of_procedures_all_clinicians": 104233
+  },
+  {
+    "year": "2016",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 107302,
+    "proportion_of_procedures_clinician_type": 0.9898982444163584,
+    "number_of_procedures_all_clinicians": 108397
+  },
+  {
+    "year": "2017",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 109248,
+    "proportion_of_procedures_clinician_type": 0.9892247233742009,
+    "number_of_procedures_all_clinicians": 110438
+  },
+  {
+    "year": "2018",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 109577,
+    "proportion_of_procedures_clinician_type": 0.9836355475763016,
+    "number_of_procedures_all_clinicians": 111400
+  },
+  {
+    "year": "2019",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 110048,
+    "proportion_of_procedures_clinician_type": 0.9768498792785115,
+    "number_of_procedures_all_clinicians": 112656
+  },
+  {
+    "year": "2020",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 82358,
+    "proportion_of_procedures_clinician_type": 0.9816560782864703,
+    "number_of_procedures_all_clinicians": 83897
+  },
+  {
+    "year": "2021",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 89404,
+    "proportion_of_procedures_clinician_type": 0.9747173555160646,
+    "number_of_procedures_all_clinicians": 91723
+  },
+  {
+    "year": "2022",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 90884,
+    "proportion_of_procedures_clinician_type": 0.9717303908989822,
+    "number_of_procedures_all_clinicians": 93528
+  },
+  {
+    "year": "2023",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 91406,
+    "proportion_of_procedures_clinician_type": 0.9645035348739053,
+    "number_of_procedures_all_clinicians": 94770
+  },
+  {
+    "year": "2024",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physicians",
+    "number_of_procedures_clinician_type": 96834,
+    "proportion_of_procedures_clinician_type": 0.9588569052074979,
+    "number_of_procedures_all_clinicians": 100989
+  },
+  {
+    "year": "2010",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 225,
+    "proportion_of_procedures_clinician_type": 0.0026281362425828155,
+    "number_of_procedures_all_clinicians": 85612
+  },
+  {
+    "year": "2011",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 377,
+    "proportion_of_procedures_clinician_type": 0.004161928838744577,
+    "number_of_procedures_all_clinicians": 90583
+  },
+  {
+    "year": "2012",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 318,
+    "proportion_of_procedures_clinician_type": 0.0033432860927709324,
+    "number_of_procedures_all_clinicians": 95116
+  },
+  {
+    "year": "2013",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 427,
+    "proportion_of_procedures_clinician_type": 0.0042404651601594895,
+    "number_of_procedures_all_clinicians": 100696.5
+  },
+  {
+    "year": "2014",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 469,
+    "proportion_of_procedures_clinician_type": 0.004548628622415332,
+    "number_of_procedures_all_clinicians": 103108
+  },
+  {
+    "year": "2015",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 541,
+    "proportion_of_procedures_clinician_type": 0.005190294820258459,
+    "number_of_procedures_all_clinicians": 104233
+  },
+  {
+    "year": "2016",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 811,
+    "proportion_of_procedures_clinician_type": 0.007481756875190273,
+    "number_of_procedures_all_clinicians": 108397
+  },
+  {
+    "year": "2017",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 736,
+    "proportion_of_procedures_clinician_type": 0.006664372770242127,
+    "number_of_procedures_all_clinicians": 110438
+  },
+  {
+    "year": "2018",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 1155,
+    "proportion_of_procedures_clinician_type": 0.010368043087971275,
+    "number_of_procedures_all_clinicians": 111400
+  },
+  {
+    "year": "2019",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 1522,
+    "proportion_of_procedures_clinician_type": 0.013510154807555744,
+    "number_of_procedures_all_clinicians": 112656
+  },
+  {
+    "year": "2020",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 729,
+    "proportion_of_procedures_clinician_type": 0.00868922607482985,
+    "number_of_procedures_all_clinicians": 83897
+  },
+  {
+    "year": "2021",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 1420,
+    "proportion_of_procedures_clinician_type": 0.015481395069938838,
+    "number_of_procedures_all_clinicians": 91723
+  },
+  {
+    "year": "2022",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 1587,
+    "proportion_of_procedures_clinician_type": 0.016968180651783422,
+    "number_of_procedures_all_clinicians": 93528
+  },
+  {
+    "year": "2023",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 2158,
+    "proportion_of_procedures_clinician_type": 0.022770919067215362,
+    "number_of_procedures_all_clinicians": 94770
+  },
+  {
+    "year": "2024",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Physician Assistants",
+    "number_of_procedures_clinician_type": 2546,
+    "proportion_of_procedures_clinician_type": 0.02521066650823357,
+    "number_of_procedures_all_clinicians": 100989
+  },
+  {
+    "year": "2010",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 120,
+    "proportion_of_procedures_clinician_type": 0.0014016726627108349,
+    "number_of_procedures_all_clinicians": 85612
+  },
+  {
+    "year": "2011",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 113,
+    "proportion_of_procedures_clinician_type": 0.0012474746917191968,
+    "number_of_procedures_all_clinicians": 90583
+  },
+  {
+    "year": "2012",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 120,
+    "proportion_of_procedures_clinician_type": 0.001261617393498465,
+    "number_of_procedures_all_clinicians": 95116
+  },
+  {
+    "year": "2013",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 156,
+    "proportion_of_procedures_clinician_type": 0.0015492097540629516,
+    "number_of_procedures_all_clinicians": 100696.5
+  },
+  {
+    "year": "2014",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 263,
+    "proportion_of_procedures_clinician_type": 0.00255072351320945,
+    "number_of_procedures_all_clinicians": 103108
+  },
+  {
+    "year": "2015",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 230,
+    "proportion_of_procedures_clinician_type": 0.0022065948404056297,
+    "number_of_procedures_all_clinicians": 104233
+  },
+  {
+    "year": "2016",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 270,
+    "proportion_of_procedures_clinician_type": 0.0024908438425417677,
+    "number_of_procedures_all_clinicians": 108397
+  },
+  {
+    "year": "2017",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 454,
+    "proportion_of_procedures_clinician_type": 0.004110903855556964,
+    "number_of_procedures_all_clinicians": 110438
+  },
+  {
+    "year": "2018",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 668,
+    "proportion_of_procedures_clinician_type": 0.00599640933572711,
+    "number_of_procedures_all_clinicians": 111400
+  },
+  {
+    "year": "2019",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 1086,
+    "proportion_of_procedures_clinician_type": 0.00963996591393268,
+    "number_of_procedures_all_clinicians": 112656
+  },
+  {
+    "year": "2020",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 810,
+    "proportion_of_procedures_clinician_type": 0.009654695638699834,
+    "number_of_procedures_all_clinicians": 83897
+  },
+  {
+    "year": "2021",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 899,
+    "proportion_of_procedures_clinician_type": 0.00980124941399649,
+    "number_of_procedures_all_clinicians": 91723
+  },
+  {
+    "year": "2022",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 1057,
+    "proportion_of_procedures_clinician_type": 0.011301428449234454,
+    "number_of_procedures_all_clinicians": 93528
+  },
+  {
+    "year": "2023",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 1206,
+    "proportion_of_procedures_clinician_type": 0.012725546058879392,
+    "number_of_procedures_all_clinicians": 94770
+  },
+  {
+    "year": "2024",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Nurse Practitioners",
+    "number_of_procedures_clinician_type": 1609,
+    "proportion_of_procedures_clinician_type": 0.015932428284268583,
+    "number_of_procedures_all_clinicians": 100989
+  },
+  {
+    "year": "2010",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 85612
+  },
+  {
+    "year": "2011",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 90583
+  },
+  {
+    "year": "2012",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 95116
+  },
+  {
+    "year": "2013",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 100696.5
+  },
+  {
+    "year": "2014",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 103108
+  },
+  {
+    "year": "2015",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 104233
+  },
+  {
+    "year": "2016",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 108397
+  },
+  {
+    "year": "2017",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 110438
+  },
+  {
+    "year": "2018",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 111400
+  },
+  {
+    "year": "2019",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 112656
+  },
+  {
+    "year": "2020",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 83897
+  },
+  {
+    "year": "2021",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 91723
+  },
+  {
+    "year": "2022",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 93528
+  },
+  {
+    "year": "2023",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 94770
+  },
+  {
+    "year": "2024",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Registered Nurse Anesthetists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 100989
+  },
+  {
+    "year": "2010",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 85612
+  },
+  {
+    "year": "2011",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 90583
+  },
+  {
+    "year": "2012",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 95116
+  },
+  {
+    "year": "2013",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 11,
+    "proportion_of_procedures_clinician_type": 0.00010923914932495171,
+    "number_of_procedures_all_clinicians": 100696.5
+  },
+  {
+    "year": "2014",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 103108
+  },
+  {
+    "year": "2015",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 11,
+    "proportion_of_procedures_clinician_type": 0.00010553279671505186,
+    "number_of_procedures_all_clinicians": 104233
+  },
+  {
+    "year": "2016",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 14,
+    "proportion_of_procedures_clinician_type": 0.00012915486590957313,
+    "number_of_procedures_all_clinicians": 108397
+  },
+  {
+    "year": "2017",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 110438
+  },
+  {
+    "year": "2018",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 111400
+  },
+  {
+    "year": "2019",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 112656
+  },
+  {
+    "year": "2020",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 83897
+  },
+  {
+    "year": "2021",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 91723
+  },
+  {
+    "year": "2022",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 93528
+  },
+  {
+    "year": "2023",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 94770
+  },
+  {
+    "year": "2024",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Clinical Nurse Specialists",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 100989
+  },
+  {
+    "year": "2010",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 85612
+  },
+  {
+    "year": "2011",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 90583
+  },
+  {
+    "year": "2012",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 95116
+  },
+  {
+    "year": "2013",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 100696.5
+  },
+  {
+    "year": "2014",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 103108
+  },
+  {
+    "year": "2015",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 104233
+  },
+  {
+    "year": "2016",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 108397
+  },
+  {
+    "year": "2017",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 110438
+  },
+  {
+    "year": "2018",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 111400
+  },
+  {
+    "year": "2019",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 112656
+  },
+  {
+    "year": "2020",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 83897
+  },
+  {
+    "year": "2021",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 91723
+  },
+  {
+    "year": "2022",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 93528
+  },
+  {
+    "year": "2023",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 94770
+  },
+  {
+    "year": "2024",
+    "procedure_codes": "31237;31238;31256",
+    "clinician_type": "Certified Nurse Midwives",
+    "number_of_procedures_clinician_type": 0,
+    "proportion_of_procedures_clinician_type": 0,
+    "number_of_procedures_all_clinicians": 100989
+  }
+]

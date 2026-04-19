@@ -685,6 +685,7 @@ if (typeof module !== 'undefined') {
         validProviderSpecCodes,
         appSpecialtyOrder,
         buildQueryURL,
+        fetchWithRateLimitRetry,
         fetchPaginatedData,
         filterColumns,
         collapseByAdvancedPracticeProvider,
