@@ -292,6 +292,7 @@ document.getElementById("queryForm").addEventListener("submit", function (e) {
     clearResults();
     setButtonEnabled(false);
     setStatus("");
+    total429Count = 0; // per-query, not per-page-load
 
     let completed = 0;
     const total = selectedYears.length;
@@ -348,9 +349,7 @@ document.getElementById("queryForm").addEventListener("submit", function (e) {
                 downloadCSV(taggedData);
             });
 
-            setStatus(`Done — ${taggedData.length.toLocaleString()} rows.`);
             setButtonEnabled(true);
-            setTimeout(() => setStatus(""), 4000);
         })
         .catch(error => {
             console.error("Error fetching data:", error);
